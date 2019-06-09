@@ -10,12 +10,17 @@ const publicDir= path.join(__dirname,'../public')
 const pathToView= path.join(__dirname,'../modular/views')
 const pathToPartial=path.join(__dirname,'../modular/partials')
 
+
 app.use(express.static(publicDir))
 
 //set handlebar engine and view loactions
 app.set('view engine', 'hbs')
 app.set('views', pathToView)
 hbs.registerPartials(pathToPartial)
+
+//let create port number for heroku app.,ake sure if it doesn't get heroku port it  still
+//runs on local host for that use 3000 after logical OR
+const port=process.env.PORT || 3000
 
 //now this ' ' will not be my default page. By default page is changed to the public
 //directory. so lets remove it..
@@ -121,9 +126,9 @@ app.get('*',(req,res)=>{
     })
 })
 
-app.listen(3000, ()=>{
+app.listen(port, ()=>{
 
-    console.log('server is runninng on port 3000')
+    console.log('server is runninng on port'+ port)
 })
 
 /** section 7 43 44 45

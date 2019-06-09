@@ -16,7 +16,9 @@ weatherForm.addEventListener('submit', (e)=>{
    const location=search.value
    messageOne.textContent="Loading...."
    messageTwo.textContent='' 
-   fetch('http://localhost:3000/weather?address='+location).then((response)=>{
+   // I can use http://localhost:3000/weather?address= if port num is staic, but it
+   //won't be the case when i deploy my app to  heroku. so I will use below format
+   fetch('/weather?address='+location).then((response)=>{
 
     response.json().then((data)=>{
 
