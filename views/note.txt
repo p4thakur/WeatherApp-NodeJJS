@@ -1,0 +1,6 @@
+I am removing my handlers from this loaction for now
+and adding it to the modular locations
+
+index.hb
+about.hbs
+help.hbs
